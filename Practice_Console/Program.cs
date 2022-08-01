@@ -19,6 +19,17 @@ namespace Practice_Console
             Console.ReadKey();
         }
 
+        // Problem 01
+
+        // If i is a Multiple of both 3 And 5, Print FizzBuzz
+        // If i is a Multiple Of 3 But Not 5, Print Fizz
+        // If i is a Multiple Of 5 But Not 3, Print Buzz
+        // Otherwise Print the Value Of i.
+
+        // Constrains 0<n<2*10p5
+
+
+
         public string fizzBuzz(int n)
         {
 
