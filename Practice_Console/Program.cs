@@ -13,8 +13,10 @@ namespace Practice_Console
         {
 
             Program pro=new Program();
-           
-            Console.WriteLine(pro.fizzBuzz(15));
+
+            // Console.WriteLine(pro.fizzBuzz(15));
+
+            Console.WriteLine(pro.SimpleArraySum(6,new int[] { 2,3,4,5,6,7}));
 
             Console.ReadKey();
         }
@@ -58,6 +60,33 @@ namespace Practice_Console
             }
             return "";
         }
+
+
+        //Problem 02
+        // Given an array of integers, find the sum of its elements.
+        //        Input Format
+
+        //The first line contains an integer, , denoting the size of the array.
+        //The second line contains  space-separated integers representing the array's elements.
+
+        public int SimpleArraySum(int n, int[] ar)
+        {
+            int result=0;
+            for (int i = 0; i < n; i++)
+            {
+                result += ar[i];
+            }
+            
+
+
+            return result;
+        }
+
+        public static int simpleArraySum(List<int> ar)
+        {
+            return ar.Sum();
+        }
+
     }
 
 
