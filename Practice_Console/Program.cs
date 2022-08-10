@@ -12,11 +12,14 @@ namespace Practice_Console
         static void Main(string[] args)
         {
 
-            Program pro=new Program();
+            //Program pro=new Program();
 
             // Console.WriteLine(pro.fizzBuzz(15));
 
-            Console.WriteLine(pro.SimpleArraySum(6,new int[] { 2,3,4,5,6,7}));
+            // Console.WriteLine(pro.SimpleArraySum(6,new int[] { 2,3,4,5,6,7}));
+            List<int> pointTabl = compareTriplets(new List<int> { 10, 15, 20 }, new List<int> { 10, 50, 60 });
+
+            Console.WriteLine(pointTabl[0].ToString() + pointTabl[1].ToString());
 
             Console.ReadKey();
         }
@@ -87,6 +90,42 @@ namespace Practice_Console
             return ar.Sum();
         }
 
+
+        //The first line contains 3 space-separated integers, a[0], a[1], and a[2], the respective values in triplet a.
+        //The second line contains 3 space-separated integers, b[0], b[1], and b[2], the respective values in triplet b.
+        //        Example
+
+        //a = [1, 2, 3]
+        //b = [3, 2, 1]
+        //        For elements *0*, Bob is awarded a point because a[0] .
+        //For the equal elements a[1] and b[1], no points are earned.
+        //Finally, for elements 2, a[2] > b[2] so Alice receives a point.
+        //The return array is [1, 1] with Alice's score first and Bob's second.
+
+        public static List<int> compareTriplets(List<int> a, List<int> b)
+        {
+            int alicePoint=0;
+            int bobsPoint=0;
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                if (a[i] > b[i] )
+                {
+                    alicePoint += 1;
+                }
+                else if (a[i] == b[i] )
+                {
+                    continue;
+                }
+                else
+                {
+                    bobsPoint += 1;
+                }
+            } 
+            List<int> ComparePoint = new List<int>() {alicePoint, bobsPoint};
+
+            return ComparePoint;
+        }
     }
 
 
