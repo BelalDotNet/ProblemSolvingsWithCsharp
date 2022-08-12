@@ -17,9 +17,10 @@ namespace Practice_Console
             // Console.WriteLine(pro.fizzBuzz(15));
 
             // Console.WriteLine(pro.SimpleArraySum(6,new int[] { 2,3,4,5,6,7}));
-            List<int> pointTabl = compareTriplets(new List<int> { 10, 15, 20 }, new List<int> { 10, 50, 60 });
+            //List<int> pointTabl = compareTriplets(new List<int> { 10, 15, 20 }, new List<int> { 10, 50, 60 });
+            //Console.WriteLine(pointTabl[0].ToString() + pointTabl[1].ToString());
 
-            Console.WriteLine(pointTabl[0].ToString() + pointTabl[1].ToString());
+             solve(13.70, 20, 8);
 
             Console.ReadKey();
         }
@@ -32,8 +33,6 @@ namespace Practice_Console
         // Otherwise Print the Value Of i.
 
         // Constrains 0<n<2*10p5
-
-
 
         public string fizzBuzz(int n)
         {
@@ -64,7 +63,6 @@ namespace Practice_Console
             return "";
         }
 
-
         //Problem 02
         // Given an array of integers, find the sum of its elements.
         //        Input Format
@@ -90,7 +88,7 @@ namespace Practice_Console
             return ar.Sum();
         }
 
-
+        //Problem 03
         //The first line contains 3 space-separated integers, a[0], a[1], and a[2], the respective values in triplet a.
         //The second line contains 3 space-separated integers, b[0], b[1], and b[2], the respective values in triplet b.
         //        Example
@@ -125,6 +123,27 @@ namespace Practice_Console
             List<int> ComparePoint = new List<int>() {alicePoint, bobsPoint};
 
             return ComparePoint;
+        }
+
+
+        //Problem 04 
+        //Complete the solve function in the editor below.
+
+        //int meal_cost: the cost of food before tip and tax
+        //int tip_percent: the tip percentage
+        //int tax_percent: the tax percentage 
+        //A tip of 15% * 100 = 15, and the taxes are 8% * 100 = 8. Print the value and return from the function.
+
+        public static void solve(double meal_cost, int tip_percent, int tax_percent)
+        {
+
+            double baseCost = meal_cost;
+            double tipCost = (meal_cost * tip_percent) / 100;
+            double taxCost = (meal_cost * tax_percent) / 100;
+
+            double total_Cost =Math.Round(baseCost + tipCost + taxCost);
+            Console.WriteLine(total_Cost.ToString());
+
         }
     }
 
