@@ -12,15 +12,24 @@ namespace Practice_Console
         static void Main(string[] args)
         {
 
-            //Program pro=new Program();
-
+            Program pro=new Program();
+            // Problem 01
             // Console.WriteLine(pro.fizzBuzz(15));
-
+            // Problem 02
             // Console.WriteLine(pro.SimpleArraySum(6,new int[] { 2,3,4,5,6,7}));
+            // Problem 03
             //List<int> pointTabl = compareTriplets(new List<int> { 10, 15, 20 }, new List<int> { 10, 50, 60 });
             //Console.WriteLine(pointTabl[0].ToString() + pointTabl[1].ToString());
+            // Problem 04
+            // solve(13.70, 20, 8);
 
-             solve(13.70, 20, 8);
+            // Problem 05
+            ListNode l1 = new ListNode(6);
+            ListNode l2 = new ListNode(4);
+
+            ListNode result = pro.AddTwoNumbers(l1, l2);
+
+            Console.WriteLine(result.val.ToString());
 
             Console.ReadKey();
         }
@@ -37,7 +46,7 @@ namespace Practice_Console
         public string fizzBuzz(int n)
         {
 
-            for (int i = 1; i <=n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 if (i % 3 == 0)
                 {
@@ -49,12 +58,12 @@ namespace Practice_Console
                     {
                         Console.WriteLine("Fizz");
                     }
-                        
+
                 }
                 else if (i % 5 == 0)
                 {
                     Console.WriteLine("Buzz");
-                }    
+                }
                 else
                 {
                     Console.WriteLine(i.ToString());
@@ -72,12 +81,12 @@ namespace Practice_Console
 
         public int SimpleArraySum(int n, int[] ar)
         {
-            int result=0;
+            int result = 0;
             for (int i = 0; i < n; i++)
             {
                 result += ar[i];
             }
-            
+
 
 
             return result;
@@ -102,16 +111,16 @@ namespace Practice_Console
 
         public static List<int> compareTriplets(List<int> a, List<int> b)
         {
-            int alicePoint=0;
-            int bobsPoint=0;
+            int alicePoint = 0;
+            int bobsPoint = 0;
 
             for (int i = 0; i < a.Count; i++)
             {
-                if (a[i] > b[i] )
+                if (a[i] > b[i])
                 {
                     alicePoint += 1;
                 }
-                else if (a[i] == b[i] )
+                else if (a[i] == b[i])
                 {
                     continue;
                 }
@@ -119,8 +128,8 @@ namespace Practice_Console
                 {
                     bobsPoint += 1;
                 }
-            } 
-            List<int> ComparePoint = new List<int>() {alicePoint, bobsPoint};
+            }
+            List<int> ComparePoint = new List<int>() { alicePoint, bobsPoint };
 
             return ComparePoint;
         }
@@ -141,12 +150,50 @@ namespace Practice_Console
             double tipCost = (meal_cost * tip_percent) / 100;
             double taxCost = (meal_cost * tax_percent) / 100;
 
-            double total_Cost =Math.Round(baseCost + tipCost + taxCost);
+            double total_Cost = Math.Round(baseCost + tipCost + taxCost);
             Console.WriteLine(total_Cost.ToString());
 
+        }
+
+
+
+        // Problem 05
+
+
+        public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        {
+            ListNode resultNode = new ListNode(-1);
+            ListNode curNode = resultNode;
+            int carry = 0;
+            while (l1 != null || l2 != null)
+            {
+                int d1 = l1 == null ? 0 : l1.val;
+                int d2 = l2 == null ? 0 : l2.val;
+
+                int sum = d1 + d2 + carry;
+                carry = sum >= 10 ? 1 : 0;
+
+
+                curNode.next = new ListNode(sum % 10);
+                curNode = curNode.next;
+                if (l1 != null) l1 = l1.next;
+                if (l2 != null) l2 = l2.next;
+            }
+            if (carry == 1) curNode.next = new ListNode(1);
+            return resultNode.next;
+        }
+    }
+
+    public class ListNode
+    {
+        public int val;
+        public ListNode next;
+        public ListNode(int val = 0, ListNode next = null)
+        {
+            this.val = val;
+            this.next = next;
         }
     }
 
 
-   
 }
