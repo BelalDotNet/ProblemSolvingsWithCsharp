@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BirthDayCandles.cs" />
     <Compile Include="MinMaxSum.cs" />
     <Compile Include="PositiveNegativePortionOfArrayLength.cs" />
     <Compile Include="PrintCount.cs" />
